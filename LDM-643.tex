@@ -1,0 +1,53 @@
+\documentclass[DM,usenatbib,authoryear,toc]{lsstdoc}
+
+\usepackage{natbib}  % bibliography
+%% Journal abbreviations
+%\bibliographystyle{aasjournal}
+
+
+% Package imports go here
+
+% Local commands go here
+
+\title[DM OPS Rehearsals]{DM OPS Rehearsals}
+
+\author{Margaret Johnson,
+and 
+Robert~A.~Gruendl}
+%\author{
+%A.~Author,
+%B.~Author,
+%and
+%C.~Author}
+
+\setDocRef{LDM-643}
+\date{\today}
+
+\setDocAbstract{
+Operations rehearsals.
+}
+
+% Change history defined here. Will be inserted into
+% correct place with \maketitle
+% OLDEST FIRST: VERSION, DATE, DESCRIPTION, OWNER NAME
+\setDocChangeRecord{%
+\addtohist{1}{2018-07-16}{Initial version.}{Robert Gruendl}
+%\addtohist{2}{2018-06-12}{Revisions based on comments.}{Robert Gruendl}
+%\addtohist{3}{yyyy-mm-dd}{Future changes}{Future person}
+}
+
+\begin{document}
+
+% Create the title page
+% Table of contents will be added automatically if "toc" class option
+% is used.
+\maketitle
+
+\input body.tex
+
+% Include all the relevant bib files.
+% lsst is for DocuShare and DMTN entries.
+% refs_ads is for entries coming from ADS.
+\bibliography{references,lsst,lsst-dm,refs,books,refs_ads}
+
+\end{document}
