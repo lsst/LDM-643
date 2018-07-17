@@ -3,10 +3,11 @@
 
 As LSST DM moves from construction through commissioning and into operations 
 a number of rehearsals have been proposed to help prepare for the execution 
-of the survey.  Specific rehearsals are outlined in LDM-503 but in the larger 
-cases (the OPS Rehearsals LDM 503-09, LDM 503-11, LDM 503-12) the contents of 
-that document alone, does not sufficiently outline the scope, content, action 
-and interaction that are being rehearsed.  From the software side, LDM-564 
+of the survey.  Specific rehearsals are outlined in \citedsp{LDM-503} but in 
+the larger cases, i.e., the OPS Rehearsals (LDM 503-09, LDM 503-11, and 
+LDM 503-12) the contents of that document alone, does not sufficiently outline 
+the scope, content, action and interaction that are being rehearsed.  
+From the software side, \citedsp{LDM-564}
 summarizes the DM software features that should be available and helpfully 
 identifies those software releases in the context of the rehearsals.  
 However, the OPS Rehearsals are not simply periods to test hardware and 
@@ -16,23 +17,24 @@ and people.
 
 This document, attempts to outline the OPS Rehearsals in greater detail, 
 first because missing/late software features and hardware systems may 
-require mitigation (e.g. shims, fake data, etc...) or might be grounds for 
+require mitigation (e.g., shims, fake data, etc...) or might be grounds for 
 postponement, second because the purpose of an OPS Rehearsal is not to debug 
 a freshly deployed system but rather to understand whether that system does
 what is needed, and third because the effort to carry out rehearsals will 
-require coordination of persons/facilities.  The current draft attempts to 
-level set this process for one OPS rehearsal (the first one)
+require coordination of persons/facilities. 
+
+Note: The current draft attempts to level set this process for one OPS 
+rehearsal (the first one)
 
 
 \section{LDM 503-09: Operations Rehearsal \#1 for Commissioning}
 
 \underline{Date:} November 2018
 
-\underline{Original Description:} \begin{quote}
-With TBD weeks commissioning pick which parts of plan we could 
+\underline{Original Description:}
+Choose TBD weeks during commissioning. Pick which parts of plan we could 
 rehearse.  Chuck suggests Instrument Signal Removal should be the focus 
 of this (or the next rehearsal).
-\end{quote}
 
 \underline{Goal:}
 
@@ -47,37 +49,37 @@ headers, size, and signature).
 production processing and formal file management systems.
 
 \item Roles include (at least) LDF Production Scientist and “Operator,” 
-ISci Ops Calibration and ISR Scientists.
+ISci Ops Calibration and ISR Scientists.  In addition an independent executor
+would plan/oversee the activities.
 \end{itemize}
 
 \underline{Pre-Requisites:}
 
 \begin{itemize}
-\item NOTE: the size/scale of the data (I.e. CCD-sized) is important because 
+\item NOTE: the size/scale of the data (i.e. CCD-sized) is important because 
 it is not clear that there will be systems (or pipelines) that function at 
 any other scale at the time of this rehearsal.  Furthermore, it should be 
 considered that any element that uses a fake process will in turn require 
 effort to produce the "shim" to fake that action.
-\item Requires RAW images and calibrations to feed the system
+\item Requires RAW images and calibrations to feed the system.
     \begin{itemize}
     \item Minimum: Can be as simple as a single image for each data type  (that can be replicated to feed the system).
-    \item Stretch:  A simulated set of images and base calibrations (e.g. bias/flat)
-    \item NOTE: above I have set the size/scale of the data as CCD-sized as this is 
+    \item Stretch: A simulated set of images and base calibrations (e.g. bias/flat).
     \end{itemize}
-\item Requires a mechanism to feed RAW images into system
-\item Requires an endpoint to receive files and messages (that activate processing)
-\item Requires a means to gather calibrations and initiate calibration processing when all have arrived
-\item Requires a Calibration Pipeline to exercise 
+\item Requires a mechanism to feed RAW images into system.
+\item Requires an endpoint to receive files and messages (that activate processing).
+\item Requires a means to gather calibrations and initiate calibration processing when all have arrived.
+\item Requires a Calibration Pipeline to exercise.
     \begin{itemize}
-    \item Minimum: Read files and output a cal (can be as simple as a null... in DES speak null calibrations were files with the right specs but contained constant values, typically 1 or 0 depending whether the calibration was applied multiplicatively or additively)
-    \item Stretch: Capable of producing a calibration set (e.g. a rudimentary combined bias/flat)
+    \item Minimum: Read files and output a cal (can be as simple as a null... in DES-speak null calibrations were files with the right specs (e.g. header, size) to be considered a calibration by downstream processing but which contained constant values, typically 1 or 0 depending whether the calibration is multiplicative or additive).
+    \item Stretch: Capable of producing a calibration set (e.g. a rudimentary combined bias/flat).
     \end{itemize}
 \item Requires a production pipeline to exercise:
     \begin{itemize}
-    \item Minimum: Read incoming files and cals and produce a new output.
-    \item Stretch: Actually perform basic ISR on simulated images
+    \item Minimum: Read incoming files and cals and produce a new output product.
+    \item Stretch: Actually perform basic ISR on simulated images.
     \end{itemize}
-\item Requires a service to receive pipeline outputs
+\item Requires a service to receive pipeline outputs.
 \item Requires a base level ability to track/verify outputs are created.  Depending on whether stretch goals are being attempted likely need ability to look at output images (and catalogs?).
 \end{itemize}
 
@@ -87,11 +89,12 @@ effort to produce the "shim" to fake that action.
 
 \begin{itemize}
 \item Assemble proto-ops team; all components from DM into services, with payloads, data sets, configurations, etc. (assumes pre-integration work) -- checklist
-\item Mock receive nightly cals and science images, ingest
-\item Generate nightly calibrations for ~1 week of observations
-\item Run nightly ISR (offline mode) for ~1 week of observations
-\item Set up, configure, select calibrations, ingest outputs
-\item Generate telemetry that would be returned to Observatory
+\item Mock receive nightly cals and science images, ingest.
+\item Mock afternoon stand-up operations meeting.
+\item Generate nightly calibrations for ~1 week of observations.
+\item Run nightly ISR (offline mode) for ~1 week of observations.
+\item Set up, configure, select calibrations, ingest outputs.
+\item Generate feedback for discussion in stand-ups (as a stretch goal this could also include telemetry that would be returned to Observatory)?
 \item Monitor progress of nightly “campaigns,” characterize and assess, make records of failures, diagnose issues, generate problem backlog.
 \item Create mock nightly reports.
 \end{itemize}
@@ -99,7 +102,9 @@ effort to produce the "shim" to fake that action.
 \underline{Assess:}
 
 \begin{itemize}
-\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did we cope? What fixes are needed, and on what timescale (e.g., next ops rehearsal, or we are go for commissioning)? What improvements in procedures, documentation, frameworks, systems, and algorithms were identified?
+\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did team cope? 
+\item What fixes are needed, and on what timescale (e.g., next ops rehearsal, or we are go for commissioning)? 
+\item What improvements in procedures, documentation, frameworks, systems, and algorithms were identified?
 \item Budget time and effort to plan and execute priority changes and improvements, and plan for next rehearsal.
 \end{itemize}
 
