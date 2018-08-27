@@ -24,7 +24,7 @@ what is needed, and third because the effort to carry out rehearsals will
 require coordination of persons/facilities. 
 
 Note: The current draft attempts to level set this process for one OPS 
-rehearsal (the first one)
+rehearsal (the first one).
 
 
 \section{LDM 503-09: Operations Rehearsal \#1 for Commissioning}
@@ -36,30 +36,52 @@ Choose TBD weeks during commissioning. Pick which parts of plan we could
 rehearse.  Chuck suggests Instrument Signal Removal should be the focus 
 of this (or the next rehearsal).
 
-\underline{Goal:}
+\clearpage
 
-Sustained nightly CCD-sized “sampling” mode operations for one week of 
+\underline{An Updated Goal:}
+
+Mimic sustained nightly ``sampling" mode operations for one week of 
 observing.  Archiving and ingestion of raw data, offline processing of 
 calibrations and basic image reduction.
 \begin{itemize}
-\item Use simulated/test-stand AuxTel data (something with expected 
-headers, size, and signature).
+\item Sampling mode has been used to describe early LSST commissiong observations where
+observations occur based on the needs of the commissioning staff.  Such observations would
+typically include some basic set of calibrations (e.g. bias/flat) followed by nightime observations
+that might be used to test system performance.  Such observations would not necessarily be run with 
+a scheduler and some might not even be appropriate for basic ISR processing.
 
-\item Execute using the as-is: pipeline payload, provenance, and 
-production processing and formal file management systems.
+\item Based on the scheduled time for this exersise the only system that
+might produce a ``realistic" data stream (something with expected headers, size, 
+and instrumental signatures) would be the AuxTel spectrograph on the testbed in Tucson.
+
+{\it Note: Some alternatives, the ComCam on the SLAC CCOB, might be feasible but the rehearsal dates 
+preceed integration of ComCam with an LSST CCS, DAQ, and archiving service.  A third 
+alternative would be to use simulated/test-stand AuxTel/ComCam data (again something 
+with expected headers, size, and signature) and feed these through a system that makes them 
+available for archiving/ingestion at NCSA.}
+
+\item The second element of this rehearsal would be to operate a batch production environment
+that would exercise: a pipeline payload, provenance, and production processing along with a 
+formal file management system.  These would operate on the data transfered to NCSA.  The ouputs should 
+also be archived.  The actual pipeline payload could be as simple as one that reads data, makes
+some alteration and tenders an output product for archiving.  More realistic processing would 
+depend on both the data being sent to NCSA and the availability of working pipeline processing tasks.
 
 \item Roles include (at least) LDF Production Scientist and “Operator,” 
 ISci Ops Calibration and ISR Scientists.  In addition an independent executor
 would plan/oversee the activities.
 \end{itemize}
 
+\clearpage
+
 \underline{Pre-Requisites:}
 
 \begin{itemize}
-\item NOTE: the size/scale of the data (i.e. CCD-sized) is important because 
-it is not clear that there will be systems (or pipelines) that function at 
-any other scale at the time of this rehearsal.  Furthermore, it should be 
-considered that any element that uses a fake process will in turn require 
+\item NOTE: the size/scale of the data (i.e. for AuxTel Spectrograph this would mean CCD-sized) 
+is important because it sets a scale for the resources (e.g., disk, CPUs, networking bandwidth)  
+needed for the rehearsal.  Depending on the data source, it is not clear that there
+would be  systems (or pipelines) that function at an appropriate scale at the time of this rehearsal.  
+Finally, it should be considered that any element that uses a fake process will in turn require 
 effort to produce the "shim" to fake that action.
 \item Requires RAW images and calibrations to feed the system.
     \begin{itemize}
@@ -84,6 +106,7 @@ effort to produce the "shim" to fake that action.
 \end{itemize}
 
 
+\clearpage
 
 \underline{Actions:}
 
@@ -99,20 +122,26 @@ effort to produce the "shim" to fake that action.
 \item Create mock nightly reports.
 \end{itemize}
 
-\clearpage
+%\clearpage
 
-\underline{Software Products and Service Needed:}
+\underline{Software Products and Services Needed:}
 
-Based on the actions being undertaken in this rehearsal the following software elements and services are needed.  Since many of these are in a nascent state, often a shim (or by user-driven action) may be needed to emulate some elements.
-
+Based on the actions being undertaken in this rehearsal the following services are needed: 
+Camera DAQ and Archiving Services, Data Backbone Services and Batch Production Services.   
+These services are implemented within the following sofware products:
 \begin{itemize}
-\item Batch Production Software: owner$=$Michelle Butler
-\item Science Pipeline Software: owner$=$Robert Lupton
-\item Supporting Software (Data Butler): owner$=$Jim Bosch
-\item Data Backbone Services: owner$=$Michelle Butler
-\item Offline Service (Batch Production): owner$=$Michelle Butler
-\item Camera DAQ and Archiving Services: (not in LDM-294 product tree)
+\item Batch Production Software (Michelle Butler)
+\item Science Pipeline Software (Robert Lupton)
+\item Supporting Software (e.g., Data Butler): (Jim Bosch)
 \end{itemize}
+Since many of these are in a nascent state, often a shim (or some user-driven actions) 
+may be needed to emulate some elements.
+
+% \item Data Backbone Services (Michelle Butler)
+% \item Offline Service (Batch Production) (Michelle Butler)
+% \item Camera DAQ and Archiving Services (not in LDM-294 product tree)
+
+\clearpage
 
 \underline{Assess:}
 
