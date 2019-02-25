@@ -35,20 +35,29 @@ rehearsal in an attempt to illuminate the process for follow on rehearsals.
 \underline{Nominal Date:} April 2019
 
 \underline{Original Description:}
-Choose TBD weeks during commissioning. Pick which parts of plan we could 
-rehearse.  Chuck suggests Instrument Signal Removal should be the focus 
-of this (or the next rehearsal).
+\begin{itemize}
+\item Choose TBD weeks during commissioning.
+\item Pick which parts of plan we could 
+rehearse.
+\item The commissioning team (via Chuck Claver) suggests Instrument Signal Removal should be the focus 
+of this (or the next rehearsal)
+\end{itemize}
 
 \clearpage
 
 \subsection{An Updated Goal:}
 
-The primary goal is to simulate nominal operations/observing for a 2--3 day 
+The primary goal is to simulate nominal operations, both daytime and nighttime, for a 2--3 day 
 period including the daily meeting(s) that would occur among the SciOps and 
 Data Facility staff.  These activities will be accompanied by simulated 
-observations obtained in a ``sampling" mode in order to exercise 1) the 
-transfer, archiving and ingestion of raw data, 2) offline processing of 
-calibrations and science data, and 3) curation of the resulting data products.
+observations obtained in a ``sampling'' mode in order to exercise:
+\begin{enumerate}
+\item the transfer, archiving and ingestion of raw data
+\item offline processing of 
+calibrations and science data
+\item curation of the resulting data products
+\end{enumerate}
+
 At the time of this initial rehearsal, we do not expect a functioning 
 observatory system, instead:
 
@@ -56,8 +65,8 @@ observatory system, instead:
 \item Sampling mode has been used to describe early LSST commissioning 
 observations where observations occur based on the needs of the commissioning 
 team.  Such observations would typically include some basic set of calibrations
-(e.g. bias/flat) followed by nighttime observations that might be used to 
-test/investigate system performance.
+(e.g. biases and flats) followed by nighttime observations that might be used to 
+test and quantify system performance.
 
 \item A basic set of raw data will be transferred to a mountaintop computer 
 which will then in turn mimic observations by sending those images from the
@@ -68,11 +77,11 @@ calibration and nightly observations that might be expected from ComCam).
 The current plan is to draw from a suitable set of test-stand data and 
 then present these as though they were coming from the telescope.
 
-\item On arrival at the LDF the observations will ingested into the current 
+\item On arrival at the LDF the observations will be ingested into the current 
 data-backbone which can in turn be used to feed the data through a batch 
-production service to produce "calibrations" and "reduced science products."
+production service to produce ``calibrations'' and ``reduced science products.''
 
-\item In the context of this rehearsal, the sophistication (or correct-ness) 
+\item In the context of this rehearsal, the sophistication (or correctness) 
 of the pipeline(s) is not paramount.  What is important is that the raw and 
 resulting products are tracked and can be superficially examined by LDF and 
 SciOps team members.  The degree of realism would depend on both the data
@@ -83,12 +92,14 @@ being sent and availability of working pipeline tasks.
 \clearpage
 \subsection{Pre-Requisites:}
 
-There are three broad categories of pre-requisites that are needed: persons 
-must be identified to fill roles within the rehearsals, services 
-(or facsimiles) need to exist that will be used/tested throughout the 
-rehearsal, and actions/work to prepare elements that would not otherwise 
-be available in the pre-operations LSST project.
-
+There are three broad categories of pre-requisites that are needed:
+\begin{enumerate}
+\item Persons must be identified to fill roles within the rehearsals.
+\item Services (or facsimiles) need to exist that will be used/tested throughout the 
+rehearsal.
+\item Elements that would not otherwise 
+be available in the pre-operations LSST project will be prepared.
+\end{enumerate}
  
 \subsubsection{Pre-Requisites: Roles:}
 
@@ -98,7 +109,7 @@ from three groups: Observatory Operations (ObsOps), Science Operations
 (SciOps), and the LSST Data Facility (LDF).
 \begin{itemize}[topsep=-8pt]
 \item Coordinator:  This person acts as an independent executor of the 
-rehearsal.  They would be responsible to outside actions that drive the 
+rehearsal.  They would be responsible for executing outside actions that drive the 
 simulation (e.g., initiating a script that would start data flowing from 
 summit to LDF).
 \item ObsOps, Observing Specialist
@@ -119,13 +130,13 @@ The broader pieces of the DM system that need to operate for this rehearsal are:
 be as simple as a shell script that draws from a list of files and transfers 
 them to NCSA with some cadence. 
 \item The long-haul networks need to be available at the time of this rehearsal.
-\item Data Backbone Endpoint: to receive and ingest incoming files.
-\item Batch Production: A mechanism to distribute jobs to a compute resource 
-to process the "new" data.
-\item Workflow System:  To configure and launch jobs.
-\item Pipeline(s): A set of software that processes the data.
-\item Science Platform: A location where raw and processed products can be 
-examined by staff.
+\item A data backbone endpoint to receive and ingest incoming files must exist.
+\item A mechanism must exist to distribute jobs to a compute resource 
+to process the "new" data--Batch Production.
+\item A workflow system to configure and launch jobs must exist.
+\item Pipeline(s) to processes the data must be in place.
+\item A minimally functional science platform where raw and processed products can be 
+examined by staff must exist.
 \end{itemize}
 
 Additional monitoring services for the networks, batch production, compute 
@@ -134,7 +145,7 @@ resource(s), and data backbone are desirable.
 \subsubsection{Pre-Requisites: Work:}\label{prework}
 
 Work that must be completed prior to Ops Rehearsal but which is not part of 
-the DM development.
+the DM development:
 \begin{itemize}[topsep=-8pt]
 \item Generate a mock data set.  This must have the ability to be ingested with 
 either Gen2 or Gen3 Butler.  It is not necessary that the generated data 
