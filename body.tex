@@ -16,14 +16,14 @@ processes and to observe the interactions of hardware, software and personnel.
 
 This document attempts to outline the Ops Rehearsals in greater detail for the following reasons:
 \begin{itemize}
-\item depending on the impact, missing or late software features and hardware systems may either
+\item Depending on the impact, missing or late software features and hardware systems may either
 require mitigation (e.g., shims, fake data, etc...) or might even be grounds for 
-postponement
-\item the purpose of an Ops Rehearsal is not to debug 
+postponement.
+\item The purpose of an Ops Rehearsal is not to debug 
 a freshly deployed system, but rather to understand whether that system does
-what is needed
-\item the effort to carry out rehearsals will 
-require coordination of personnel and facilities
+what is needed.
+\item The effort to carry out rehearsals will 
+require coordination of personnel and facilities.
 \end{itemize}
 
 Note: The current draft attempts to describe the process for the first Ops 
@@ -36,14 +36,11 @@ rehearsal in an attempt to illuminate the process for follow on rehearsals.
 
 \underline{Original Description:}
 \begin{itemize}
-\item Choose TBD weeks during commissioning.
-\item Pick which parts of plan we could 
-rehearse.
+\item Choose TBD weeks during commissioning to simulate.
+\item Pick which parts of plan we could rehearse.
 \item The commissioning team (via Chuck Claver) suggests Instrument Signal Removal should be the focus 
-of this (or the next rehearsal)
+of this (or the next rehearsal).
 \end{itemize}
-
-\clearpage
 
 \subsection{An Updated Goal:}
 
@@ -53,8 +50,7 @@ Data Facility staff.  These activities will be accompanied by simulated
 observations obtained in a ``sampling'' mode in order to exercise:
 \begin{enumerate}
 \item the transfer, archiving and ingestion of raw data
-\item offline processing of 
-calibrations and science data
+\item offline processing of calibrations and science data
 \item curation of the resulting data products
 \end{enumerate}
 
@@ -174,28 +170,28 @@ and tested.
 
 A basic outline of the processes that would occur during for this rehearsal 
 follows:
-\begin{itemize}[topsep=-8pt]
-\item (ALL: ObsOps+SciOps+LDF) Afternoon stand-up operations meeting.
-\item (ObsOps) Mock transmit nightly cals to LDF for ingestion.
-\item (LDF) Generate nightly calibrations.
-\item (SciOps) Select configuration and calibrations.
-\item (ObsOps) Mock transmit nightly science images and ingest
-\item (LDF) Run science pipeline (.e.g. ISR) in offline/batch mode.
-\item (LDF) Generate feedback on processing for discussion in stand-ups.
-\item (SciOps) Examine input and output data from nightly observations and
-processing.
-\item (SciOps) Generate feedback for discussion in stand-ups.
-\item (ALL) Monitor progress of nightly “campaigns,” characterize and assess, 
-make records of failures, diagnose issues, generate problem backlog.
-\item (ALL) Create mock nightly reports.
-\item Repeat (a total of 3 times)
-\end{itemize}
+\begin{enumerate}[topsep=-8pt]
+\item (ALL: ObsOps+SciOps+LDF) afternoon stand-up operations meeting
+\item (ObsOps) mock transmit nightly calibration exposures to LDF for ingestion
+\item (LDF) generate nightly master calibrations
+\item (SciOps) select configuration and calibrations
+\item (ObsOps) mock transmit nightly science images and ingest
+\item (LDF) run science pipeline (.e.g. ISR) in offline/batch mode
+\item (LDF) generate feedback on processing for discussion in stand-ups
+\item (SciOps) examine input and output data from nightly observations and
+processing
+\item (SciOps) generate feedback for discussion in stand-ups
+\item (ALL) monitor progress of nightly “campaigns,” characterize and assess, 
+make records of failures, diagnose issues, generate problem backlog
+\item (ALL) create mock nightly reports
+\item repeat (a total of 3 times)
+\end{enumerate}
 
 While there are "realistic" components within the outline, much of focus by 
 the actors should be on the processes.  How is this going to look in 
 day-to-day operations?  If there are problems, what happens?  Who gets a 
 call and when?  What information needs to be available between a geographically
-distributed team? (and when?)  Are the lines of communication between those
+distributed team (and when)?  Are the lines of communication between those
 groups sufficient?
 
 %\clearpage
@@ -219,15 +215,15 @@ groups sufficient?
 \subsection{Assess:}
 
 Among the activities in the Rehearsal Outline it is expected that some might influence the long-term development
-within DM.  For example exercising tools/services (e.g. the LSP) with a mind toward operational needs.  Thought
-toward the processes and metrics needed to make decisions about configuration, calibration selection, 
-and production success/failure. 
+within DM.  An example is exercising tools and services (e.g. the LSP) with a mind toward operational needs.  Another
+example is to inform the processes and metrics needed to make decisions about configuration and calibration selection in the context of both production success and production failure.
 
+Example questions that can be asked during the assessment phase are:
 \begin{itemize}
-\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did team cope? 
+\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did the team cope? 
 \item What fixes are needed, and on what timescale (e.g., next ops rehearsal, or we are go for commissioning)? 
-\item What improvements in procedures, documentation, frameworks, systems, and algorithms were identified?
-\item Budget time and effort to plan and execute priority changes and improvements, and plan for next rehearsal.
+\item What improvements in procedures, documentation, frameworks, systems, and algorithms were identified and at what priority?
+\item How is time and effort budgeted to plan and execute priority changes and improvements? How will the next rehearsal be planned?
 \end{itemize}
 
 
@@ -237,10 +233,14 @@ and production success/failure.
 
 \section{LDM 503-11: Operations Rehearsal \#2 for Commissioning}
 
-\underline{Original Description:}
-More complete commissioning rehearsal: how do the scientists look at data? 
-How do they provide feedback to the telescope? How do we create/update 
-calibrations?
+\underline{Original Description:}\\
+More complete commissioning rehearsal: 
+\begin{itemize}
+\item How do the scientists look at data? 
+\item How do they provide feedback to the telescope?
+\item How do we create calibrations?
+\item How do we update calibrations?
+\end{itemize}
 
 %
 %
@@ -248,7 +248,7 @@ calibrations?
 
 \section{LDM 503-12: Operations Rehearsal \#3 for Commissioning}
 
-\underline{Original Description:}
+\underline{Original Description:}\\
 Dress rehearsal: commissioning starts in April so by this stage we should 
 be ready to do everything needed.
 
