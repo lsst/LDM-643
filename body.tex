@@ -4,27 +4,30 @@
 As LSST DM moves from construction through commissioning and into operations 
 a number of rehearsals have been proposed to help prepare for the execution 
 of the survey.  Specific rehearsals are outlined in \citedsp{LDM-503} but in 
-the larger cases, i.e., the OPS Rehearsals (LDM 503-09, LDM 503-11, and 
-LDM 503-12) the contents of that document alone, does not sufficiently outline 
+the more comprehensive cases, i.e. the Operations (Ops) Rehearsals (LDM 503-09, LDM 503-11, and 
+LDM 503-12), the contents of those document alone, do not sufficiently outline 
 the scope, content, action and interaction that are being rehearsed.  
 From the software side, \citedsp{LDM-564}
 summarizes the DM software features that should be available and helpfully 
 identifies those software releases in the context of the rehearsals.  
-However, the OPS Rehearsals are not simply periods to test hardware and 
-software systems, they are opportunities to understand/develop operations 
-processes and to observe the interactions of those hardware/software systems 
-and people. 
+However, the Ops Rehearsals are not simply periods to test hardware and 
+software systems, they are opportunities to develop and understand operations 
+processes and to observe the interactions of hardware, software and personnel.
 
-This document, attempts to outline the OPS Rehearsals in greater detail, 
-first because missing/late software features and hardware systems may 
-require mitigation (e.g., shims, fake data, etc...) or might be grounds for 
-postponement, second because the purpose of an OPS Rehearsal is not to debug 
-a freshly deployed system but rather to understand whether that system does
-what is needed, and third because the effort to carry out rehearsals will 
-require coordination of persons/facilities. 
+This document attempts to outline the Ops Rehearsals in greater detail for the following reasons:
+\begin{itemize}
+\item Depending on the impact, missing or late software features and hardware systems may either
+require mitigation (e.g., shims, fake data, etc...) or might even be grounds for 
+postponement.
+\item The purpose of an Ops Rehearsal is not to debug 
+a freshly deployed system, but rather to understand whether that system does
+what is needed.
+\item The effort to carry out rehearsals will 
+require coordination of personnel and facilities.
+\end{itemize}
 
-Note: The current draft attempts to level set this process for one OPS 
-rehearsal (the first one).
+Note: The current draft attempts to describe the process for the first Ops 
+rehearsal in an attempt to illuminate the process for follow on rehearsals.
 
 
 \section{LDM 503-09: Operations Rehearsal \#1 for Commissioning}
@@ -32,20 +35,25 @@ rehearsal (the first one).
 \underline{Nominal Date:} April 2019
 
 \underline{Original Description:}
-Choose TBD weeks during commissioning. Pick which parts of plan we could 
-rehearse.  Chuck suggests Instrument Signal Removal should be the focus 
+\begin{itemize}
+\item Choose TBD weeks during commissioning to simulate.
+\item Pick which parts of plan we could rehearse.
+\item The commissioning team (via Chuck Claver) suggests Instrument Signal Removal should be the focus 
 of this (or the next rehearsal).
-
-\clearpage
+\end{itemize}
 
 \subsection{An Updated Goal:}
 
-The primary goal is to simulate nominal operations/observing for a 2--3 day 
+The primary goal is to simulate nominal operations, both daytime and nighttime, for a 2--3 day 
 period including the daily meeting(s) that would occur among the SciOps and 
 Data Facility staff.  These activities will be accompanied by simulated 
-observations obtained in a ``sampling" mode in order to exercise 1) the 
-transfer, archiving and ingestion of raw data, 2) offline processing of 
-calibrations and science data, and 3) curation of the resulting data products.
+observations obtained in a ``sampling'' mode in order to exercise:
+\begin{enumerate}
+\item the transfer, archiving and ingestion of raw data
+\item offline processing of calibrations and science data
+\item curation of the resulting data products
+\end{enumerate}
+
 At the time of this initial rehearsal, we do not expect a functioning 
 observatory system, instead:
 
@@ -53,8 +61,8 @@ observatory system, instead:
 \item Sampling mode has been used to describe early LSST commissioning 
 observations where observations occur based on the needs of the commissioning 
 team.  Such observations would typically include some basic set of calibrations
-(e.g. bias/flat) followed by nighttime observations that might be used to 
-test/investigate system performance.
+(e.g. biases and flats) followed by nighttime observations that might be used to 
+test and quantify system performance.
 
 \item A basic set of raw data will be transferred to a mountaintop computer 
 which will then in turn mimic observations by sending those images from the
@@ -65,11 +73,11 @@ calibration and nightly observations that might be expected from ComCam).
 The current plan is to draw from a suitable set of test-stand data and 
 then present these as though they were coming from the telescope.
 
-\item On arrival at the LDF the observations will ingested into the current 
+\item On arrival at the LDF the observations will be ingested into the current 
 data-backbone which can in turn be used to feed the data through a batch 
-production service to produce "calibrations" and "reduced science products."
+production service to produce ``calibrations'' and ``reduced science products.''
 
-\item In the context of this rehearsal, the sophistication (or correct-ness) 
+\item In the context of this rehearsal, the sophistication (or correctness) 
 of the pipeline(s) is not paramount.  What is important is that the raw and 
 resulting products are tracked and can be superficially examined by LDF and 
 SciOps team members.  The degree of realism would depend on both the data
@@ -80,12 +88,14 @@ being sent and availability of working pipeline tasks.
 \clearpage
 \subsection{Pre-Requisites:}
 
-There are three broad categories of pre-requisites that are needed: persons 
-must be identified to fill roles within the rehearsals, services 
-(or facsimiles) need to exist that will be used/tested throughout the 
-rehearsal, and actions/work to prepare elements that would not otherwise 
-be available in the pre-operations LSST project.
-
+There are three broad categories of pre-requisites that are needed:
+\begin{enumerate}
+\item Persons must be identified to fill roles within the rehearsals.
+\item Services (or facsimiles) need to exist that will be used/tested throughout the 
+rehearsal.
+\item Elements that would not otherwise 
+be available in the pre-operations LSST project will be prepared.
+\end{enumerate}
  
 \subsubsection{Pre-Requisites: Roles:}
 
@@ -95,7 +105,7 @@ from three groups: Observatory Operations (ObsOps), Science Operations
 (SciOps), and the LSST Data Facility (LDF).
 \begin{itemize}[topsep=-8pt]
 \item Coordinator:  This person acts as an independent executor of the 
-rehearsal.  They would be responsible to outside actions that drive the 
+rehearsal.  They would be responsible for executing outside actions that drive the 
 simulation (e.g., initiating a script that would start data flowing from 
 summit to LDF).
 \item ObsOps, Observing Specialist
@@ -116,13 +126,13 @@ The broader pieces of the DM system that need to operate for this rehearsal are:
 be as simple as a shell script that draws from a list of files and transfers 
 them to NCSA with some cadence. 
 \item The long-haul networks need to be available at the time of this rehearsal.
-\item Data Backbone Endpoint: to receive and ingest incoming files.
-\item Batch Production: A mechanism to distribute jobs to a compute resource 
-to process the "new" data.
-\item Workflow System:  To configure and launch jobs.
-\item Pipeline(s): A set of software that processes the data.
-\item Science Platform: A location where raw and processed products can be 
-examined by staff.
+\item A data backbone endpoint to receive and ingest incoming files must exist.
+\item A mechanism must exist to distribute jobs to a compute resource 
+to process the "new" data--Batch Production.
+\item A workflow system to configure and launch jobs must exist.
+\item Pipeline(s) to processes the data must be in place.
+\item A minimally functional science platform where raw and processed products can be 
+examined by staff must exist.
 \end{itemize}
 
 Additional monitoring services for the networks, batch production, compute 
@@ -130,8 +140,8 @@ resource(s), and data backbone are desirable.
 
 \subsubsection{Pre-Requisites: Work:}\label{prework}
 
-Work that must be completed prior to OPS Rehearsal but which is not part of 
-the DM development.
+Work that must be completed prior to Ops Rehearsal but which is not part of 
+the DM development:
 \begin{itemize}[topsep=-8pt]
 \item Generate a mock data set.  This must have the ability to be ingested with 
 either Gen2 or Gen3 Butler.  It is not necessary that the generated data 
@@ -160,28 +170,28 @@ and tested.
 
 A basic outline of the processes that would occur during for this rehearsal 
 follows:
-\begin{itemize}[topsep=-8pt]
-\item (ALL: ObsOps+SciOps+LDF) Afternoon stand-up operations meeting.
-\item (ObsOps) Mock transmit nightly cals to LDF for ingestion.
-\item (LDF) Generate nightly calibrations.
-\item (SciOps) Select configuration and calibrations.
-\item (ObsOps) Mock transmit nightly science images and ingest
-\item (LDF) Run science pipeline (.e.g. ISR) in offline/batch mode.
-\item (LDF) Generate feedback on processing for discussion in stand-ups.
-\item (SciOps) Examine input and output data from nightly observations and
-processing.
-\item (SciOps) Generate feedback for discussion in stand-ups.
-\item (ALL) Monitor progress of nightly “campaigns,” characterize and assess, 
-make records of failures, diagnose issues, generate problem backlog.
-\item (ALL) Create mock nightly reports.
-\item Repeat (a total of 3 times)
-\end{itemize}
+\begin{enumerate}[topsep=-8pt]
+\item (ALL: ObsOps+SciOps+LDF) afternoon stand-up operations meeting
+\item (ObsOps) mock transmit nightly calibration exposures to LDF for ingestion
+\item (LDF) generate nightly master calibrations
+\item (SciOps) select configuration and calibrations
+\item (ObsOps) mock transmit nightly science images and ingest
+\item (LDF) run science pipeline (.e.g. ISR) in offline/batch mode
+\item (LDF) generate feedback on processing for discussion in stand-ups
+\item (SciOps) examine input and output data from nightly observations and
+processing
+\item (SciOps) generate feedback for discussion in stand-ups
+\item (ALL) monitor progress of nightly “campaigns,” characterize and assess, 
+make records of failures, diagnose issues, generate problem backlog
+\item (ALL) create mock nightly reports
+\item repeat (a total of 3 times)
+\end{enumerate}
 
 While there are "realistic" components within the outline, much of focus by 
 the actors should be on the processes.  How is this going to look in 
 day-to-day operations?  If there are problems, what happens?  Who gets a 
 call and when?  What information needs to be available between a geographically
-distributed team? (and when?)  Are the lines of communication between those
+distributed team (and when)?  Are the lines of communication between those
 groups sufficient?
 
 %\clearpage
@@ -205,15 +215,15 @@ groups sufficient?
 \subsection{Assess:}
 
 Among the activities in the Rehearsal Outline it is expected that some might influence the long-term development
-within DM.  For example exercising tools/services (e.g. the LSP) with a mind toward operational needs.  Thought
-toward the processes and metrics needed to make decisions about configuration, calibration selection, 
-and production success/failure. 
+within DM.  An example is exercising tools and services (e.g. the LSP) with a mind toward operational needs.  Another
+example is to inform the processes and metrics needed to make decisions about configuration and calibration selection in the context of both production success and production failure.
 
+Example questions that can be asked during the assessment phase are:
 \begin{itemize}
-\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did team cope? 
+\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did the team cope? 
 \item What fixes are needed, and on what timescale (e.g., next ops rehearsal, or we are go for commissioning)? 
-\item What improvements in procedures, documentation, frameworks, systems, and algorithms were identified?
-\item Budget time and effort to plan and execute priority changes and improvements, and plan for next rehearsal.
+\item What improvements in procedures, documentation, frameworks, systems, and algorithms were identified and at what priority?
+\item How is time and effort budgeted to plan and execute priority changes and improvements? How will the next rehearsal be planned?
 \end{itemize}
 
 
@@ -223,10 +233,14 @@ and production success/failure.
 
 \section{LDM 503-11: Operations Rehearsal \#2 for Commissioning}
 
-\underline{Original Description:}
-More complete commissioning rehearsal: how do the scientists look at data? 
-How do they provide feedback to the telescope? How do we create/update 
-calibrations?
+\underline{Original Description:}\\
+More complete commissioning rehearsal: 
+\begin{itemize}
+\item How do the scientists look at data? 
+\item How do they provide feedback to the telescope?
+\item How do we create calibrations?
+\item How do we update calibrations?
+\end{itemize}
 
 %
 %
@@ -234,7 +248,7 @@ calibrations?
 
 \section{LDM 503-12: Operations Rehearsal \#3 for Commissioning}
 
-\underline{Original Description:}
+\underline{Original Description:}\\
 Dress rehearsal: commissioning starts in April so by this stage we should 
 be ready to do everything needed.
 
