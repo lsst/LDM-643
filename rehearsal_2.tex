@@ -1,0 +1,204 @@
+
+\section{LDM 503-11: Operations Rehearsal \#2 for Commissioning}
+
+\underline{Nominal Date:} December 2019 - February 2020
+
+\underline{Original Description:}\\
+More complete commissioning rehearsal: 
+\begin{itemize}[topsep=-8pt]
+\item How do the scientists look at data? 
+\item How do they provide feedback to the telescope?
+\item How do we create calibrations?
+\item How do we update calibrations?
+\end{itemize}
+
+\subsection{An Updated Goal:}
+
+The primary goal is to rehearse for commissioning operations prior to the ComCam 
+verification and validation era (including the mini-surveys).  
+Similar to Ops Rehearsal \#1, we would emulate both daytime and nighttime, 
+for a 3--5 days, would include daily meetings, exercise data movement and
+processing.  Additionally this rehearsal could include: application of software 
+changes, simulated outages, or non-standard (unprocessable) engineering 
+observations.  If the Auxiliary Telescope Spectrograph has become available,
+one alternative or extension that should be considered would be to use AuxTel 
+data and a pipeline as part of these exercises.
+
+In the current time frame of this rehearsal, we do not expect a functioning 
+telescope + camera.  Instead:
+
+\begin{itemize}[topsep=-8pt]
+\item Will use AuxTel/LATISS to obtain 'real' imaging data.  We will attempt
+to exercise as many elements of the emergent automatic data transfer as possible 
+(including data transfer to base) but at a mimimum to the LDF.
+
+\item The contents of the dataset will roughly match those expected during 
+ComCam verification activities (except that they will be at a scale of LATISS
+rather than ComCam) Thus, the dataset would be comprised of calibration and 
+nightly observations but could also include engineering data (that might not 
+be processed with a normal pipeline).
+
+\item On arrival at the LDF the observations will be ingested into the current
+data-backbone which can in turn be used to feed the data through a batch
+production service to produce ``calibrations'' and ``reduced science products.''
+If the DAQ2.5 hardware/software are available then early prompt processing could
+be attempted (meaning processing that would be triggered by arrival of new observations).
+
+\item Similar to the Ops Rehearsal \#1, the sophistication (or correctness)
+of the pipelines are not paramount.  What is important is that the raw and
+resulting data products are tracked and can be superficially examined by LDF and
+SciOps team members.  The degree of realism would depend on both the data
+being sent and availability of working pipeline tasks.
+
+\item Once ComCam is available on the test stand at the summit, a follow-on 
+rehearsal (nominally OPS Rehearsal 2b) should be considered to further exercise
+capabilities at raft-scale and better prepare for ComCam during commissioning.
+Processing would have to focus on exercising Calibration Products Pipelines (CPP) 
+but could also focus on fast turn around through use of the OODS and Commissioning
+Cluster at the Base Center.
+\end{itemize}
+
+\clearpage
+
+\subsection{Pre-Requisites:}
+
+There are three broad categories of pre-requisites that are needed:
+\begin{enumerate}[topsep=-8pt]
+\item Persons must be identified to fill roles within the rehearsals.
+\item Services (or facsimiles) need to exist that will be used/tested throughout the 
+rehearsal.
+\item Elements that would not otherwise 
+be available in the pre-operations LSST project will be prepared.
+\end{enumerate}
+ 
+\subsubsection{Pre-Requisites: Roles:}
+
+Persons need to be identified that will staff various roles in this 
+rehearsal.  These roles are drawn from those in operations which come
+from three groups: Observatory Operations (ObsOps), Science Operations 
+(SciOps), and the LSST Data Facility (LDF).
+\begin{itemize}[topsep=-8pt]
+\item Coordinator:  This person acts as an independent executor of the 
+rehearsal.  They would be responsible for executing outside actions that drive the 
+simulation (e.g., initiating a script that would start data flowing from 
+summit to LDF).
+\item ObsOps, Site Astronomer
+\item ObsOps, Observing Specialist
+\item SciOps, QA Scientist
+\item SciOps, Verification and Validation Scientist
+\item LDF, Operator
+\item LDF, QA Scientist
+\item LDF, Admin
+\end{itemize}
+
+
+\subsubsection{Pre-Requisites: Services \& Service Components:}
+
+The broader pieces of the DM system that need to operate for this rehearsal are:
+\begin{itemize}[topsep=-8pt]
+\item Data transfer service must operate at the mountaintop for AuxTel that will send data.
+The method most recently used when LATISS was on the test-stand in Tucson, rsync, is 
+sufficient for this task, and can act as a backup if forwarding through the camera DAQ is 
+not yet available/reliable.
+
+\item  Nominally the long-haul networks need to be available at the time of this rehearsal.
+(Note: at the time of this rehearsal we can only expect transfer rates (BASE to LDF)
+of order 40 GB/s.  Therefore, ccd-scale images should require only a fraction of a second to 
+transmit.)
+
+\item A data backbone endpoint to receive and ingest incoming files must exist.
+
+\item An automated mechanism to ingest into a Butler, on-arrival at an endpoint (OODS at BASE, DBB at LDF)
+must exist.  Currently a mechanism for this exists assuming a Gen2 Butler at the LDF.
+
+\item Processing can occur either though an automated mechanism, i.e. jobs start after data ingestion
+or through a batch-production mode.  Batch production (assuming Gen2 Butler) has already been demonstrated,
+if Gen3 Butler is used or on arrival processing is deemed necessary then shims may be necessary.
+
+\item Pipeline(s) to processes the data must be in place.
+
+\item A functional science platform (LSP) where raw and processed data products can be 
+examined by staff is needed and already exists.
+\end{itemize}
+
+Exercising monitoring services for the networks, batch production, compute 
+resource(s), and data backbone can be treated as a stretch goal.
+
+
+\subsubsection{Pre-Requisites: Work:}\label{prework}
+
+Work that must be completed prior to Ops Rehearsal but which is not part of 
+the DM development:
+\begin{itemize}[topsep=-8pt]
+\item Effort to ensure that shims are available to facilitate on-arrival and/or
+batch processing.  
+\item Specify appropriate pipeline(s) that will be run during the rehearsal.
+\item Use early AuxTel/LATISS observing to test that pipelines are appropriately 
+configured for the rehearsal.
+\item Make compute and storage resources are available, including a reservation for
+compute resoureces to ensure timely processing can occur.
+\item Create a central location (e.g. Confluence page) for the rehearsal to record 
+information about incidents, problem backlog, processing and QA summaries.
+\end{itemize}
+
+
+\subsection{Rehearsal Outline:}
+Since this proposal revolves around real observations with LATISS, some activities will
+occur during the local nightime in Chile and any staff interactions that include
+the Observing Specialist need to accomodate their night schedule.  This
+means the communications chains among the Observing Specialist (nighttime), 
+Site Astonomer (daytime), and LDF Operator will be exercised.  Currently automated
+feedback from processing (at LDF) to the observing team has not been provisioned 
+within the system.
+
+A basic outline of the processes that would occur during this rehearsal are given below, 
+starting from the time that afternoon calibrations are acquired on the summit.
+\begin{enumerate}[topsep=-8pt]
+\item \# Afternoon
+\item (ObsOps) Acquire afternoon calibration.
+\item (LDF) Calibrations Products Pipeline runs.
+\item (SciOps) select configuration and calibrations.
+\item (ALL: ObsOps+SciOps+LDF) Afternoon stand-up operations meeting.  
+\item (ALL: ObsOps+SciOps+LDF) Closeout previous night's observing report
+\item \# Night
+\item (ObsOps+LDF) Nightly observing (data automatically transferred, ingested and processed at LDF
+\item (ObsOps) create nightly reports for feedback to daytime ObsOps staff
+\item \# Morning
+\item (LDF) generate processing reports or discussion in stand-ups
+\item (SciOps) examine input and output data from nightly observations and processing, 
+\item (SciOps) generate quality reports for discussion in stand-ups
+\item repeat (between 3-5 times)
+\end{enumerate}
+
+Similar to OPS Rehearsal \#1, there are "realistic" components within the outline, but 
+much of focus by the actors should be on the processes, meetings, and communications.
+At a minimum the actors should be considering how well this will work in day-to-day 
+operations?  on weekends?  How problem are addressed?  Who gets a call and when?  
+What information needs to be available between a geographically distributed team (and when)?  
+Are the lines of communication between those groups sufficient?
+
+\subsection{Assess:}
+
+Among the activities in the Rehearsal Outline it is expected that some might influence 
+the long-term development of the processes that will occur during operations but also 
+might provide feedback in the DM development effort.  An example is exercising tools 
+and services (e.g. the LSP) with a mind toward operational needs.  Another example is 
+to inform the processes and metrics needed to make decisions about configuration and 
+calibration selection in the context of both production success and production failure.
+
+Example questions that can be asked during the assessment phase are:
+\begin{itemize}[topsep=-8pt]
+\item Was the rehearsal successful? How long did it take? What anomalies/failure modes were identified, and how did the team cope? 
+\item What fixes are needed, and on what timescale (e.g., next ops rehearsal, or we are go for commissioning)? 
+\item What improvements in procedures, documentation, frameworks, systems, and algorithms were identified and at what priority?
+\item How is time and effort budgeted to plan and execute priority changes and improvements? How will the next rehearsal be planned?
+\end{itemize}
+
+%\subsection{Addendum:}
+%Operations Rehearsal \#1 occurred in May 2019.  A short note, DMTN-119, gives a summary 
+%report of its execution.
+
+\clearpage
+
+
+
