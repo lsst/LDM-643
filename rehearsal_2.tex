@@ -1,7 +1,7 @@
 
 \section{LDM 503-11: Operations Rehearsal \#2 for Commissioning}
 
-\underline{Nominal Date:} December 2019 - February 2020
+\underline{Nominal Date:} July 2020
 
 \underline{Original Description:}\\
 More complete commissioning rehearsal: 
@@ -16,33 +16,34 @@ More complete commissioning rehearsal:
 
 The primary goal is to rehearse for commissioning operations prior to the ComCam 
 verification and validation era (including the mini-surveys).  
-Similar to Ops Rehearsal \#1, we would emulate both daytime and nighttime, 
+Unlike Ops Rehearsal \#1, we will be emulating daytime operations, 
 for a 3--5 days, would include daily meetings, exercise data movement and
 processing.  Additionally this rehearsal could include: application of software 
 changes, simulated outages, or non-standard (unprocessable) engineering 
-observations.  If the Auxiliary Telescope Spectrograph has become available,
-one alternative or extension that should be considered would be to use AuxTel 
-data and a pipeline as part of these exercises.
+observations.  As summit operations are restored, alternative or 
+extended follow-on rehearsal activities should be considered utilizng AuxTel/LATISS
+or ComCam installed at the summmit and to supplement these exercises.
 
 In the current time frame of this rehearsal, we do not expect a functioning 
 telescope + camera.  Instead:
 
 \begin{itemize}[topsep=-8pt]
-\item Will use AuxTel/LATISS to obtain 'real' imaging data.  We will attempt
-to exercise as many elements of the emergent automatic data transfer as possible 
-(including data transfer to base) but at a mimimum to the LDF.
+\item Despite the COVID-19 shutdown of summit activities, the project has 
+managed to make ComCam available from the Base Facility.   We will attempt
+to exercise as many elements of the emergent system as possible.  Primary
+among these are automatic data transfer to the LDF (and if possible, to
+Base compute resources through the OODS).
 
 \item The contents of the dataset will roughly match those expected during 
-ComCam verification activities (except that they will be at a scale of LATISS
-rather than ComCam) Thus, the dataset would be comprised of calibration and 
-nightly observations but could also include engineering data (that might not 
-be processed with a normal pipeline).
+ComCam verification activities, except that they will be confined to the
+calibration sequences possible from the temporary installation at the Base.
 
 \item On arrival at the LDF the observations will be ingested into the current
-data-backbone which can in turn be used to feed the data through a batch
-production service to produce ``calibrations'' and ``reduced science products.''
-If the DAQ2.5 hardware/software are available then early prompt processing could
-be attempted (meaning processing that would be triggered by arrival of new observations).
+data-backbone which can in turn be used to feed the Calibrations Products
+Pipelines (CPP) to produce ``calibrations'' and ``reduced calibration products.''
+As a stretch goal, a rudimentary prompt processing system can be attempted,
+meaning processing that would be triggered by arrival of new observations, rather
+than directly commanded by a user.
 
 \item Similar to the Ops Rehearsal \#1, the sophistication (or correctness)
 of the pipelines are not paramount.  What is important is that the raw and
@@ -50,15 +51,13 @@ resulting data products are tracked and can be superficially examined by LDF and
 SciOps team members.  The degree of realism would depend on both the data
 being sent and availability of working pipeline tasks.
 
-\item Once ComCam is available on the test stand at the summit, a follow-on 
-rehearsal (nominally OPS Rehearsal 2b) should be considered to further exercise
+\item Once ComCam is available on the test stand (at the summit) and/or available
+on the telescope, follow-on rehearsal(s) should be considered to further exercise
 capabilities at raft-scale and better prepare for ComCam during commissioning.
-Processing would have to focus on exercising Calibration Products Pipelines (CPP) 
-but could also focus on fast turn around through use of the OODS and Commissioning
-Cluster at the Base Center.
+Depending on the camera location, processing would focus on again exercising 
+CPP, or begin exercising pipeline reductions amenable to early on-sky data.
 \end{itemize}
 
-\clearpage
 
 \subsection{Pre-Requisites:}
 
@@ -103,7 +102,7 @@ not yet available/reliable.
 
 \item  Nominally the long-haul networks need to be available at the time of this rehearsal.
 (Note: at the time of this rehearsal we can only expect transfer rates (BASE to LDF)
-of order 40 GB/s.  Therefore, ccd-scale images should require only a fraction of a second to 
+of order 40 GB/s.  Therefore, raft-scale observations should require only a few seconds to 
 transmit.)
 
 \item A data backbone endpoint to receive and ingest incoming files must exist.
@@ -133,7 +132,7 @@ the DM development:
 \item Effort to ensure that shims are available to facilitate on-arrival and/or
 batch processing.  
 \item Specify appropriate pipeline(s) that will be run during the rehearsal.
-\item Use early AuxTel/LATISS observing to test that pipelines are appropriately 
+\item Use early ComCam test-stand data to test that pipelines are appropriately 
 configured for the rehearsal.
 \item Make compute and storage resources are available, including a reservation for
 compute resoureces to ensure timely processing can occur.
@@ -143,28 +142,25 @@ information about incidents, problem backlog, processing and QA summaries.
 
 
 \subsection{Rehearsal Outline:}
-Since this proposal revolves around real observations with LATISS, some activities will
-occur during the local nightime in Chile and any staff interactions that include
-the Observing Specialist need to accomodate their night schedule.  This
-means the communications chains among the Observing Specialist (nighttime), 
-Site Astonomer (daytime), and LDF Operator will be exercised.  Currently automated
-feedback from processing (at LDF) to the observing team has not been provisioned 
+Since this proposal revolves around test-stand observations with ComCam, the 
+activites can be centered around daytime (i.e., shifted in time compared to 
+the normal sequence of event during Operations).  This means the communications chains 
+among the Observing Specialist (nighttime), Site Astonomer (daytime), and LDF Operator
+will be exercised, but in such a way that the fit within a normal workday.
+Currently automated feedback from processing (at LDF) to the observing team has not been provisioned 
 within the system.
 
 A basic outline of the processes that would occur during this rehearsal are given below, 
 starting from the time that afternoon calibrations are acquired on the summit.
 \begin{enumerate}[topsep=-8pt]
-\item \# Afternoon
-\item (ObsOps) Acquire afternoon calibration.
+\item \# Morning
+\item (ObsOps) Acquire ``afternoon'' calibrations.
 \item (LDF) Calibrations Products Pipeline runs.
 \item (SciOps) select configuration and calibrations.
-\item (ALL: ObsOps+SciOps+LDF) Afternoon stand-up operations meeting.  
+\item \# Noon
+\item (ALL: ObsOps+SciOps+LDF) 'Afternoon stand-up operations meeting.  
 \item (ALL: ObsOps+SciOps+LDF) Closeout previous night's observing report
-\item \# Night
-\item (ObsOps+LDF) Nightly observing (data automatically transferred, ingested and processed at LDF
-\item (ObsOps) create nightly reports for feedback to daytime ObsOps staff
-\item \# Morning
-\item (LDF) generate processing reports or discussion in stand-ups
+\item (LDF) generate processing reports for discussion in stand-ups
 \item (SciOps) examine input and output data from nightly observations and processing, 
 \item (SciOps) generate quality reports for discussion in stand-ups
 \item repeat (between 3-5 times)
@@ -176,6 +172,15 @@ At a minimum the actors should be considering how well this will work in day-to-
 operations?  on weekends?  How problem are addressed?  Who gets a call and when?  
 What information needs to be available between a geographically distributed team (and when)?  
 Are the lines of communication between those groups sufficient?
+
+An example set of calibration sequences, assuming a 3 day rehearsal with ComCam at the Base could be:
+\begin{itemize}[topsep=-8pt]
+\item Day 1: Normal Calibration Sequence: N$\times$Bias, N$\times$Flat, N$\times$ Dark.
+\item Day 2: Change/move illumination source: repeat Day 1.
+\item Day 3: Repeat Day 1, but interrupt change illumination during Flat Sequence, and repeat a New flat sequence.
+\end{itemize}
+
+
 
 \subsection{Assess:}
 
